@@ -5,6 +5,7 @@ import Style from "./style";
 import { Props } from "./types";
 import { FilmCardWithTitleComponent } from "../../components/FilmCardWithTitleComponent";
 import { LinkComponent } from "../../components/LinkComponent";
+import { BackHeaderComponent } from "../../components/BackHeaderComponent";
 
 export function DetailScreen({ navigation, route }: Props) {
 
@@ -17,6 +18,7 @@ export function DetailScreen({ navigation, route }: Props) {
                 source={{ uri: data.thumbnail.path + '/detail.' + data.thumbnail.extension }}
                 style={Style.image}
             />
+            <BackHeaderComponent />
             <View style={Style.content}>
                 <RedTitleComponent text={'NAME'} containerStyle={{ marginTop: 10 }} />
                 <Text style={Style.text}>{data.name}</Text>

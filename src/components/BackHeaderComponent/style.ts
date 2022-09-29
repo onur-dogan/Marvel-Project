@@ -4,12 +4,11 @@ import theme from "../../constant/theme";
 const Style = StyleSheet.create({
     icon: {
         color: theme.Colors.white,
-        fontSize: 20,
+        fontSize: 30,
+        marginLeft: 15
     },
     container: {
         position:"absolute", 
-        zIndex:1,
-        backgroundColor:theme.Colors.black,
     }
 });
 
