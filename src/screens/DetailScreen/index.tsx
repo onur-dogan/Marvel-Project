@@ -8,9 +8,7 @@ import { LinkComponent } from "../../components/LinkComponent";
 import { BackHeaderComponent } from "../../components/BackHeaderComponent";
 
 export function DetailScreen({ navigation, route }: Props) {
-
     const data = route.params.data;
-
 
     return (
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
@@ -29,9 +27,9 @@ export function DetailScreen({ navigation, route }: Props) {
                 <FilmCardWithTitleComponent data={data.stories.items} text='STORIES' />
                 <FilmCardWithTitleComponent data={data.events.items} text='EVENTS' />
                 <RedTitleComponent text={'RELATED LINKS'} containerStyle={{ marginTop: 10 }} />
-                <LinkComponent text='Detail' containerStyle={{ marginTop: 15 }}/>
-                <LinkComponent text='Wiki' containerStyle={{ marginTop: 15 }}/>
-                <LinkComponent text='Comiclink' containerStyle={{ marginTop: 15 }}/>
+                <LinkComponent text='Detail' containerStyle={{ marginTop: 15 }} />
+                <LinkComponent text='Wiki' containerStyle={{ marginTop: 15 }} />
+                <LinkComponent text='Comiclink' containerStyle={{ marginTop: 15 }} />
             </View>
         </ScrollView>
     )

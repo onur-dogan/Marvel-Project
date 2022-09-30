@@ -6,11 +6,13 @@ import { FlatList } from "react-native";
 import { CharacterComponent } from "../../components/CharacterComponent";
 import { ModalSwitcher } from "../../utils/modal-switcher";
 import { SearchHeaderComponent } from "../../components/SearchHeaderComponent";
+import { LoadingComponentSwitcher } from "../../utils/loading.switcher";
 
 export function HomeScreen({ navigation }: Props) {
 
     const [data, setData] = useState([] as CharacterModel[])
     const [limit, setLimit] = useState(5)
+    const [search, setSearch] = useState("")
 
     useEffect(() => {
         getData()
@@ -24,8 +26,8 @@ export function HomeScreen({ navigation }: Props) {
     }
 
     const callSearchFunction = (data: string) => {
+        setSearch(data)
         getData(data)
-        setLimit(5)
     }
 
     const _renderItem = (category: { index: number, item: CharacterModel }) => {
@@ -38,12 +40,13 @@ export function HomeScreen({ navigation }: Props) {
 
     return (
         <>
-            <SearchHeaderComponent searchFunction={callSearchFunction}/>
+            <SearchHeaderComponent searchFunction={callSearchFunction} />
             <FlatList
                 data={data}
                 renderItem={_renderItem}
                 keyExtractor={item => item.id.toString()}
-                onScrollEndDrag={() => setLimit((limit) => limit + 5)}
-            /></>
+                onEndReached={() => {(!search) && setLimit((limit) => limit + 5) }}
+            />
+        </>
     )
 }

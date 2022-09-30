@@ -6,8 +6,8 @@ import { ListEmptyComponent } from "../ListEmptyComponent";
 import { CharacterItemComponent } from "../CharacterItemComponent";
 
 export function FilmCardWithTitleComponent({ data, text }: Props) {
-    const _renderComics = (data: { item: Iitems }) => {
-        return (<CharacterItemComponent data={data.item} />)
+    const _renderComics = (eachData: { item: Iitems }) => {
+        return (<CharacterItemComponent data={eachData.item} />)
     }
 
     const _renderItemSeperator = () => {
@@ -21,7 +21,7 @@ export function FilmCardWithTitleComponent({ data, text }: Props) {
                 data={data}
                 renderItem={_renderComics}
                 horizontal={true}
-                ListEmptyComponent={<ListEmptyComponent />}
+                ListEmptyComponent={<ListEmptyComponent text='Veri Bulunamadı'/>}
                 ItemSeparatorComponent={_renderItemSeperator}
                 style={{ marginTop: 10 }}
                 showsHorizontalScrollIndicator={false}

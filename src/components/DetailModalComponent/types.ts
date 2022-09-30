@@ -1,7 +1,7 @@
 import { Iitems } from "../../API/models/common-model"
 
 type props = {
-    data : Iitems,
+    data : Iitems[],
 }
 
 export type Props = props

@@ -4,6 +4,7 @@ import { Image, Text, TouchableOpacity } from "react-native";
 import Style from "./style";
 import { APIService } from "../../API/api-service";
 import theme from "../../constant/theme";
+import { ModalSwitcher } from "../../utils/modal-switcher";
 
 export function CharacterItemComponent({ data }: Props) {
 
@@ -12,7 +13,6 @@ export function CharacterItemComponent({ data }: Props) {
     const getData = () => {
         APIService.getFilmDetail(data.resourceURI)
             .then((res) => {
-                console.log(res)
                 setFilmData(res)
             })
     }
@@ -22,7 +22,7 @@ export function CharacterItemComponent({ data }: Props) {
     }, [])
     
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => ModalSwitcher.showDetailModal(data)}>
             <Image
                 source={{
                     uri: filmData ?
