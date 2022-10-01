@@ -4,9 +4,7 @@ import { APIService } from "../../API/api-service";
 import { CharacterModel } from "../../API/models/character-model";
 import { FlatList } from "react-native";
 import { CharacterComponent } from "../../components/CharacterComponent";
-import { ModalSwitcher } from "../../utils/modal-switcher";
 import { SearchHeaderComponent } from "../../components/SearchHeaderComponent";
-import { LoadingComponentSwitcher } from "../../utils/loading.switcher";
 
 export function HomeScreen({ navigation }: Props) {
 
@@ -45,7 +43,7 @@ export function HomeScreen({ navigation }: Props) {
                 data={data}
                 renderItem={_renderItem}
                 keyExtractor={item => item.id.toString()}
-                onEndReached={() => {(!search) && setLimit((limit) => limit + 5) }}
+                onEndReached={() => { (!search) && setLimit((limit) => limit + 5) }}
             />
         </>
     )

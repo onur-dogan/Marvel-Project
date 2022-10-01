@@ -6,9 +6,9 @@ import { APIService } from "../../API/api-service";
 import theme from "../../constant/theme";
 import { ModalSwitcher } from "../../utils/modal-switcher";
 
-export function CharacterItemComponent({ data , allData}: Props) {
+export function CharacterItemComponent({ data, allData }: Props) {
 
-    const [filmData, setFilmData] = useState({path: undefined, extension: undefined} as { path?: string, extension?: string })
+    const [filmData, setFilmData] = useState({ path: undefined, extension: undefined } as { path?: string, extension?: string })
 
     const getData = () => {
         APIService.getFilmDetail(data.resourceURI)
@@ -20,11 +20,9 @@ export function CharacterItemComponent({ data , allData}: Props) {
     useEffect(() => {
         getData()
     }, [])
-    
-    console.log(allData)
-    
+
     return (
-        <TouchableOpacity onPress={() => ModalSwitcher.showDetailModal(data)}>
+        <TouchableOpacity onPress={() => { ModalSwitcher.showDetailModal(allData) }}>
             <Image
                 source={{
                     uri: filmData ?

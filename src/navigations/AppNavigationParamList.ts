@@ -1,8 +1,8 @@
 import { CharacterModel } from "../API/models/character-model";
 
 export type appNavigationParamList = {
-    Index : undefined;
-    Detail : {
+    Index: undefined;
+    Detail: {
         data: CharacterModel
     }
 }

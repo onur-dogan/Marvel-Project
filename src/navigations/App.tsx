@@ -15,16 +15,16 @@ export function Content() {
 
   return (
     <Provider store={store}>
-    <AntDesignProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Index" component={HomeScreen} />
-          <Stack.Screen name="Detail" component={DetailScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-      <Loading/>
-      <DetailModal/>
-    </AntDesignProvider>
+      <AntDesignProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Index" component={HomeScreen} />
+            <Stack.Screen name="Detail" component={DetailScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+        <Loading />
+        <DetailModal />
+      </AntDesignProvider>
     </Provider>
   )
 }

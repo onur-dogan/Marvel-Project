@@ -53,13 +53,6 @@ const Style = StyleSheet.create({
         marginBottom: 15,
         textAlign: "center",
     },
-    imageContainer:{
-        height: "70%",
-        width: "90%",
-        resizeMode: "cover",
-        marginTop: 40
-        
-    },
 });
 
 export default Style

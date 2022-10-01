@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Props } from "./types";
-import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import Style from "./style";
 
 
@@ -11,7 +11,7 @@ export function SearchHeaderComponent({ searchFunction }: Props) {
 
     const cancelClickFunction = () => {
         setIsSearch(isSearch => !isSearch)
-        if(search != ''){
+        if (search != '') {
             setSearch('')
             searchFunction('')
         }

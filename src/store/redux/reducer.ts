@@ -5,7 +5,7 @@ import { State } from "./State";
 const initialState: State = {
     loading: false,
     isDetailModal: false,
-    detailModalData: {} as Iitems
+    detailModalData: [] as Iitems[]
 }
 
 const setLoading = (state: boolean = initialState.loading, action: Action) => {
@@ -30,7 +30,7 @@ const setDetailModalShow = (state: boolean = initialState.isDetailModal, action:
     }
 }
 
-const setDetailModalData = (state: Iitems = initialState.detailModalData, action: Action) => {
+const setDetailModalData = (state: Iitems[] = initialState.detailModalData, action: Action) => {
     switch (action.type) {
         case ActionType.DETAIL_MODAL_DATA:
             return {

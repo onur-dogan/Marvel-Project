@@ -10,7 +10,7 @@ export class APIService {
         LoadingComponentSwitcher.ShowLoadingComponent()
         const APIKey = Token.generateAPIKey()
         const parameters = data ? `name=${data}&limit=${limit}` : `limit=${limit}`
-        return axios.get(APIURLs.HostURL + APIURLs.CHARACTERS + '?' + parameters + '&' +APIKey)
+        return axios.get(APIURLs.HostURL + APIURLs.CHARACTERS + '?' + parameters + '&' + APIKey)
             .then((res) => {
                 LoadingComponentSwitcher.HideLoadingComponent()
                 const resData: CharacterModel[] = res.data.data.results
@@ -18,6 +18,7 @@ export class APIService {
             }).catch(err => {
                 LoadingComponentSwitcher.HideLoadingComponent()
                 ModalSwitcher.ShowErrorModal('API CALL ERROR', 'Hata Meydana Geldi')
+                console.log(err)
                 return []
                 // todo
             })

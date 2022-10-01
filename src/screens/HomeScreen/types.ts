@@ -1,4 +1,3 @@
-
 import { appNavigationParamList } from "../../navigations/AppNavigationParamList";
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 

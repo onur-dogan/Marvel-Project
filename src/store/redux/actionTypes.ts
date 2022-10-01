@@ -18,7 +18,7 @@ interface detailModalAction {
 
 interface detailModalDataAction {
     type: ActionType.DETAIL_MODAL_DATA,
-    payload: Iitems,
+    payload: Iitems[],
 }
 
 export type Action =

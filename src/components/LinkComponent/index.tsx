@@ -1,10 +1,9 @@
 import React from "react";
 import { Props } from "./types";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import Style from "./style";
 
 export function LinkComponent({ text, containerStyle }: Props) {
-    // todo void
 
     return (
         <TouchableOpacity style={[Style.view, containerStyle]}>

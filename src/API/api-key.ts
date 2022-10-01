@@ -1,2 +1,2 @@
-export const PUBLIC_KEY = '34ea5a2afb445db5ab8da5f2c0bc5f13'
-export const PRIVATE_KEY = '17f3d0275f92ecd44075c6c472b7b89282651699'
+export const PUBLIC_KEY = '28e230a9abee1ae0ccf723f0dec94a51'
+export const PRIVATE_KEY = 'c3d95238301ea4ea14c7385c630f4a10e1bcf0bd'

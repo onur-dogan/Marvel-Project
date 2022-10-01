@@ -21,7 +21,7 @@ export function FilmCardWithTitleComponent({ data, text }: Props) {
                 data={data}
                 renderItem={_renderComics}
                 horizontal={true}
-                ListEmptyComponent={<ListEmptyComponent text='Veri Bulunamadı'/>}
+                ListEmptyComponent={<ListEmptyComponent text='Veri Bulunamadı' />}
                 ItemSeparatorComponent={_renderItemSeperator}
                 style={{ marginTop: 10 }}
                 showsHorizontalScrollIndicator={false}

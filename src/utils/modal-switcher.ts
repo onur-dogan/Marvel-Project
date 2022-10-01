@@ -9,14 +9,14 @@ export class ModalSwitcher {
             {
                 text: 'OK'
             }])
-        }
-
-        static showDetailModal(data: Iitems){
-            store.dispatch(detailModalAction(true))
-            store.dispatch(detailModalDataAction(data))
-        }
-
-        static hideDetailModal(){
-            store.dispatch(detailModalAction(false))
-        }
     }
+
+    static showDetailModal(data: Iitems[]) {
+        store.dispatch(detailModalDataAction(data))
+        store.dispatch(detailModalAction(true))
+    }
+
+    static hideDetailModal() {
+        store.dispatch(detailModalAction(false))
+    }
+}

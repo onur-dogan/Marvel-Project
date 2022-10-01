@@ -1,29 +1,49 @@
-import { Image, Modal, Pressable, Text, View } from "react-native";
+import { Modal, FlatList, Pressable, Text, View } from "react-native";
 import { connect } from "react-redux";
 import store from "../../store/store";
 import Style from "./style";
 import { ModalSwitcher } from "../../utils/modal-switcher";
 import { useEffect, useState } from "react";
 import { APIService } from "../../API/api-service";
-import theme from "../../constant/theme";
+import { ListEmptyComponent } from "../ListEmptyComponent";
+import { CharacterModalComponent } from "../CharacterModalComponent";
 
 export function DetailModalComponent(props: any) {
-    console.log(props, props.isDetailModal)
-    const [filmData, setFilmData] = useState({ path: undefined, extension: undefined } as { path?: string, extension?: string })
+    interface Iimage {
+        path?: string,
+        extension?: string,
+        name?: string,
+    }
+    const [filmData, setFilmData] = useState([] as Iimage[])
 
-    const getData = () => {
-        APIService.getFilmDetail(props.detailModalData.detailModalData.resourceURI)
-            .then((res) => {
-                setFilmData(res)
-            })
+    async function getData() {
+        var list = [] as Iimage[]
+        for (const element of props.detailModalData.detailModalData) {
+            await APIService.getFilmDetail(element.resourceURI)
+                .then((res) => {
+                    list.push({ ...res, name: element.name })
+                })
+        }
+        setFilmData(list)
+    }
+
+    const _renderFilmItem = (eachData: { item: Iimage, index: number }) => {
+        return (
+            <CharacterModalComponent data={eachData.item}
+                index={eachData.index + 1}
+                totalLength={filmData.length} />
+        )
     }
 
     useEffect(() => {
-        props.isDetailModal.isDetailModal && getData()
-    }, [])
+        getData()
+
+        return () => {
+            setFilmData([])
+        }
+    }, [props.detailModalData.detailModalData])
 
     return (
-        props.isDetailModal.isDetailModal &&
         <Modal
             animationType="slide"
             transparent={true}
@@ -35,16 +55,16 @@ export function DetailModalComponent(props: any) {
                         style={[Style.button, Style.buttonClose]}
                         onPress={() => ModalSwitcher.hideDetailModal()}
                     >
-                        <Text style={Style.textStyle}>X</Text>
+                        <Text style={Style.textStyle}>{"X"}</Text>
                     </Pressable>
-                    <Image
-                        source={{
-                            uri: filmData ?
-                                filmData.path + '/detail.' + filmData.extension
-                                : theme.Images.unknown_png
-                        }}
-                        style={Style.imageContainer} />
-                <Text style={Style.deepTextStyle}>{props.detailModalData.detailModalData.name}</Text>
+                    <FlatList
+                        data={filmData}
+                        renderItem={_renderFilmItem}
+                        horizontal={true}
+                        ListEmptyComponent=
+                        {<ListEmptyComponent text='Kartlar Yükleniyor...' />}
+                        showsHorizontalScrollIndicator={false}
+                    />
                 </View>
             </View>
         </Modal>

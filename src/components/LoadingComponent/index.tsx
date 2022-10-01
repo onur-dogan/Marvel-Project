@@ -7,7 +7,7 @@ import { View } from "@ant-design/react-native";
 function LoadingComponent(props: any) {
     return (
         props.loading.loading &&
-        <View style={{ height: '100%', justifyContent:"center", backgroundColor:"#00000050"}}>
+        <View style={{ height: '100%', justifyContent: "center", backgroundColor: "#00000050" }}>
             <ActivityIndicator size={"large"} />
         </View>
     )
