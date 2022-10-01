@@ -8,6 +8,7 @@ import { LoadingComponentSwitcher } from '../utils/loading.switcher'
 export class APIService {
     static getCharacters(limit?: number, data = '') {
         LoadingComponentSwitcher.ShowLoadingComponent()
+        console.log('calling CharacterAPI')
         const APIKey = Token.generateAPIKey()
         const parameters = data ? `name=${data}&limit=${limit}` : `limit=${limit}`
         return axios.get(APIURLs.HostURL + APIURLs.CHARACTERS + '?' + parameters + '&' + APIKey)
@@ -18,13 +19,13 @@ export class APIService {
             }).catch(err => {
                 LoadingComponentSwitcher.HideLoadingComponent()
                 ModalSwitcher.ShowErrorModal('API CALL ERROR', 'Hata Meydana Geldi')
-                console.log(err)
                 return []
                 // todo
             })
     }
 
     static getFilmDetail(resourceURI: string) {
+        console.log('calling FilmDetailAPI')
         LoadingComponentSwitcher.ShowLoadingComponent()
         const APIKey = Token.generateAPIKey()
         return axios.get(resourceURI + '?' + APIKey)
