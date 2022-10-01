@@ -12,18 +12,18 @@ export function DetailModalComponent(props: any) {
     const [filmData, setFilmData] = useState({ path: undefined, extension: undefined } as { path?: string, extension?: string })
 
     const getData = () => {
-        APIService.getFilmDetail(props.data.detailModalData.resourceURI)
+        APIService.getFilmDetail(props.detailModalData.detailModalData.resourceURI)
             .then((res) => {
                 setFilmData(res)
             })
     }
 
     useEffect(() => {
-        props.data.isDetailModal && getData()
-    }, [props.data])
+        props.isDetailModal.isDetailModal && getData()
+    }, [])
 
     return (
-        props.data.isDetailModal.isDetailModal &&
+        props.isDetailModal.isDetailModal &&
         <Modal
             animationType="slide"
             transparent={true}
@@ -44,8 +44,8 @@ export function DetailModalComponent(props: any) {
                                 : theme.Images.unknown_png
                         }}
                         style={Style.imageContainer} />
+                <Text style={Style.deepTextStyle}>{props.detailModalData.detailModalData.name}</Text>
                 </View>
-                <Text style={Style.textStyle}>{props.detailModalData.name}</Text>
             </View>
         </Modal>
     )
@@ -54,7 +54,7 @@ export function DetailModalComponent(props: any) {
 const mapStateToProps = () => {
     return {
         isDetailModal: store.getState().setDetailModalShow,
-        data: store.getState().setDetailModalData
+        detailModalData: store.getState().setDetailModalData
     };
 };
 

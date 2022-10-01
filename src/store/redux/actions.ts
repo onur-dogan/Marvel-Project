@@ -13,9 +13,9 @@ export const loadingAction = (loading: boolean) => {
          payload: isDetailModal,
       }) as Action
   }
-  export const detailModalDataAction = (data: Iitems) => {
+  export const detailModalDataAction = (detailModalData: Iitems) => {
       return ({
           type: ActionType.DETAIL_MODAL_DATA,
-          payload: data,
+          payload: detailModalData,
        }) as Action
    }

@@ -4,7 +4,8 @@ export default {
         white: "white",
         black: "black",
         red: "red",
-        darkBlue: '#303d56'
+        darkBlue: '#242E40',
+        darkerBlue : '#202937'
     },
     Styles: {
         container : {

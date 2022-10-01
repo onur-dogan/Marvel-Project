@@ -6,7 +6,7 @@ import { APIService } from "../../API/api-service";
 import theme from "../../constant/theme";
 import { ModalSwitcher } from "../../utils/modal-switcher";
 
-export function CharacterItemComponent({ data }: Props) {
+export function CharacterItemComponent({ data , allData}: Props) {
 
     const [filmData, setFilmData] = useState({path: undefined, extension: undefined} as { path?: string, extension?: string })
 
@@ -20,6 +20,8 @@ export function CharacterItemComponent({ data }: Props) {
     useEffect(() => {
         getData()
     }, [])
+    
+    console.log(allData)
     
     return (
         <TouchableOpacity onPress={() => ModalSwitcher.showDetailModal(data)}>

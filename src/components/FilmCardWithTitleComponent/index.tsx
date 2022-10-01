@@ -7,7 +7,7 @@ import { CharacterItemComponent } from "../CharacterItemComponent";
 
 export function FilmCardWithTitleComponent({ data, text }: Props) {
     const _renderComics = (eachData: { item: Iitems }) => {
-        return (<CharacterItemComponent data={eachData.item} />)
+        return (<CharacterItemComponent data={eachData.item} allData={data} />)
     }
 
     const _renderItemSeperator = () => {

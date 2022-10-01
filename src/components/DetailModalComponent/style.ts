@@ -22,31 +22,43 @@ const Style = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
         height: "100%",
-        width: "100%"
+        width: "100%",
     },
     button: {
-      borderRadius: 20,
-      padding: 10,
+      borderRadius: 5,
+      padding:10,
+      paddingTop: 2,
+      paddingBottom:2,
       elevation: 2,
+      left:180,
+      marginTop:5
     },
     buttonOpen: {
         backgroundColor: theme.Colors.white,
     },
     buttonClose: {
-        backgroundColor: theme.Colors.darkBlue,
+        backgroundColor: theme.Colors.darkerBlue,
     },
     textStyle: {
         color: theme.Colors.white,
         fontWeight: "bold",
+        fontSize: 20,
+    },
+    deepTextStyle: {
+        color: theme.Colors.white,
+        marginTop: 20,
+        fontSize: 15
     },
     modalText: {
         marginBottom: 15,
-        textAlign: "center"
+        textAlign: "center",
     },
     imageContainer:{
-        height: "80%",
-        width: "80%",
-        resizeMode: "cover"
+        height: "70%",
+        width: "90%",
+        resizeMode: "cover",
+        marginTop: 40
+        
     },
 });
 

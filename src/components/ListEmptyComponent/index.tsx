@@ -1,10 +1,11 @@
 import React from "react";
 import { Props } from "./types";
 import { Text } from "react-native";
+import Style from "./style";
 
-export function ListEmptyComponent({ text = 'Yükleniyor.' }: Props) {
+export function ListEmptyComponent({ text = 'Loading...' }: Props) {
 
     return (
-        <Text>{text}</Text>
+        <Text style={Style.text}>{text}</Text>
     )
 }
