@@ -2,7 +2,7 @@ import { combineReducers, createStore } from '@reduxjs/toolkit'
 import { setLoading, setDetailModalShow, setDetailModalData } from './redux/reducer';
 
 const reducers = combineReducers({
-  setLoading : setLoading,
+  setLoading: setLoading,
   setDetailModalShow: setDetailModalShow,
   setDetailModalData: setDetailModalData
 })

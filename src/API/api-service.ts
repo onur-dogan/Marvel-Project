@@ -25,8 +25,8 @@ export class APIService {
     }
 
     static getFilmDetail(resourceURI: string) {
-        console.log('calling FilmDetailAPI')
         LoadingComponentSwitcher.ShowLoadingComponent()
+        console.log('calling FilmDetailAPI')
         const APIKey = Token.generateAPIKey()
         return axios.get(resourceURI + '?' + APIKey)
             .then((res) => {

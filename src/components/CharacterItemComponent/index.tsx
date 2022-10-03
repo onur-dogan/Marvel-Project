@@ -10,7 +10,7 @@ export function CharacterItemComponent({ data, allData }: Props) {
 
     const [filmData, setFilmData] = useState({ path: undefined, extension: undefined } as { path?: string, extension?: string })
 
-    const getData = () => {
+    async function getData() {
         APIService.getFilmDetail(data.resourceURI)
             .then((res) => {
                 setFilmData(res)
@@ -21,11 +21,13 @@ export function CharacterItemComponent({ data, allData }: Props) {
         getData()
     }, [])
 
+    console.log(filmData)
+
     return (
         <TouchableOpacity onPress={() => { ModalSwitcher.showDetailModal(allData) }}>
             <Image
                 source={{
-                    uri: filmData ?
+                    uri: filmData && filmData.path ?
                         filmData.path + '/detail.' + filmData.extension
                         : theme.Images.unknown_png
                 }}

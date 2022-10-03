@@ -11,9 +11,7 @@ const initialState: State = {
 const setLoading = (state: boolean = initialState.loading, action: Action) => {
     switch (action.type) {
         case ActionType.LOADING:
-            return {
-                loading: action.payload
-            }
+            return action.payload
         default:
             return state
     }
@@ -22,9 +20,7 @@ const setLoading = (state: boolean = initialState.loading, action: Action) => {
 const setDetailModalShow = (state: boolean = initialState.isDetailModal, action: Action) => {
     switch (action.type) {
         case ActionType.IS_DETAIL_MODAL:
-            return {
-                isDetailModal: action.payload
-            }
+            return action.payload
         default:
             return state
     }
@@ -33,9 +29,7 @@ const setDetailModalShow = (state: boolean = initialState.isDetailModal, action:
 const setDetailModalData = (state: Iitems[] = initialState.detailModalData, action: Action) => {
     switch (action.type) {
         case ActionType.DETAIL_MODAL_DATA:
-            return {
-                detailModalData: action.payload
-            }
+            return action.payload
         default:
             return state
     }

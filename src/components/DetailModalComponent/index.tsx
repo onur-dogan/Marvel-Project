@@ -18,7 +18,7 @@ export function DetailModalComponent(props: any) {
 
     async function getData() {
         var list = [] as Iimage[]
-        for (const element of props.detailModalData.detailModalData) {
+        for (const element of props.detailModalData) {
             await APIService.getFilmDetail(element.resourceURI)
                 .then((res) => {
                     list.push({ ...res, name: element.name })
@@ -37,17 +37,16 @@ export function DetailModalComponent(props: any) {
 
     useEffect(() => {
         getData()
-
         return () => {
             setFilmData([])
         }
-    }, [props.detailModalData.detailModalData])
+    }, [props.detailModalData])
 
     return (
         <Modal
             animationType="slide"
             transparent={true}
-            visible={props.isDetailModal.isDetailModal}
+            visible={props.isDetailModal}
         >
             <View style={Style.centeredView}>
                 <View style={Style.modalView}>

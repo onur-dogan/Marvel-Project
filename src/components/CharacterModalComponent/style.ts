@@ -17,7 +17,6 @@ const Style = StyleSheet.create({
     imageContainer: {
         height: "80%",
         width: "100%",
-        resizeMode: "cover",
         marginTop: 20
     },
     centeredView: {
@@ -27,7 +26,7 @@ const Style = StyleSheet.create({
         marginTop: 15
     },
     modalView: {
-        margin: 70,
+        margin: 100,
         backgroundColor: theme.Colors.darkBlue,
         borderRadius: 20,
         padding: 10,

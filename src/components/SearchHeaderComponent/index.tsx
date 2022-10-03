@@ -11,10 +11,13 @@ export function SearchHeaderComponent({ searchFunction }: Props) {
 
     const cancelClickFunction = () => {
         setIsSearch(isSearch => !isSearch)
-        if (search != '') {
-            setSearch('')
-            searchFunction('')
-        }
+        search.trim() && searchFunction('')
+        setSearch('')
+    }
+
+    const _searchFunction = () => {
+        //if search has any letter or number. Not accept the spaces.
+        search.trim() && searchFunction(search)
     }
 
     return (
@@ -42,7 +45,7 @@ export function SearchHeaderComponent({ searchFunction }: Props) {
                 />
                 <TouchableOpacity
                     style={Style.click}
-                    onPress={() => searchFunction(search)}>
+                    onPress={() => { _searchFunction() }}>
                     <Text style={Style.text}>Ara</Text>
                 </TouchableOpacity>
             </View>
