@@ -37,7 +37,7 @@ export function DetailModalComponent(props: any) {
 
     useEffect(() => {
         getData()
-        return () => {
+        return () => { 
             setFilmData([])
         }
     }, [props.detailModalData])
